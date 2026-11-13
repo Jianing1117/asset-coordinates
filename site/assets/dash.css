@@ -1,0 +1,88 @@
+/* 慢复利资产坐标 · 在 Brand Kit 网页样板 site.css 之上的补充。
+   只加看板需要、样板里没有的零件：位置条、读数、图表容器、规则表。颜色全部取自色板与数据深色。 */
+
+/* 五个市场并列，一项一色，顺序固定：天蓝、樱粉、丁香紫、薄荷绿、黄油黄 */
+.page[data-c=mint]{--p:var(--mint);--pw:#EEF6F3;--pl:var(--ink-blue)}
+.page[data-c=butter]{--p:var(--butter);--pw:#FBF6E4;--pl:var(--ink-blue)}
+body[data-c=mint]{--p:var(--mint)}body[data-c=butter]{--p:var(--butter)}
+body[data-c=lilac] .prog,body[data-c=mint] .prog,body[data-c=butter] .prog{background:var(--ink-blue)}
+.page{--dc:#1570A2}
+.page[data-c=pink]{--dc:#D98091}.page[data-c=lilac]{--dc:#6C4385}.page[data-c=mint]{--dc:#2DA283}.page[data-c=butter]{--dc:#CBAF57}
+
+.top{padding-top:clamp(48px,8cqw,120px)}
+.wide{max-width:920px}
+.meta{font-family:var(--label);letter-spacing:.14em;font-size:13px;color:var(--grey);margin-top:20px}
+.sec.tight{padding-top:clamp(72px,9cqw,128px)}
+.side .h3{margin-top:8px}.side .s{margin-top:6px;max-width:16em}
+.nav{gap:clamp(18px,2.6cqw,40px)}
+
+/* 位置：一个大数字、一条五段的位置条 */
+.verdict{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:clamp(28px,5cqw,72px);align-items:end}
+.verdict .fig{font-size:clamp(88px,12cqw,150px);color:var(--ink)}
+.verdict .h2{margin-top:6px}
+.pos{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;height:10px;margin-top:26px;max-width:520px}
+.pos i{display:block;background:var(--stone);opacity:.55}
+.pos i.on{background:var(--p);opacity:1}
+.pos b{position:absolute;top:-7px;width:2px;height:24px;background:var(--ink);transform:translateX(-1px)}
+.pos-l{display:flex;justify-content:space-between;max-width:520px;margin-top:10px;font-size:12.5px;color:var(--note)}
+.pos.sm{height:8px;margin-top:0;max-width:none}.pos.sm b{top:-5px;height:18px}
+
+/* 读数：大数字配一句话 */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px clamp(24px,3cqw,44px)}
+.tile .num{font-family:var(--label);font-size:clamp(40px,4.4cqw,58px);line-height:1;margin-top:12px;white-space:nowrap}
+.tile .num small{font-family:var(--text);font-size:14px;color:var(--note);margin-left:6px;letter-spacing:0}
+.tile .s{margin-top:10px}
+.tile .h3{font-size:15px}
+.old{display:inline-block;margin-top:8px;font-size:12px;color:var(--note);border:1px solid var(--stone);border-radius:20px;padding:2px 10px}
+
+/* 图 */
+.figure{margin-top:0}
+.figure+.figure{margin-top:72px}
+.figure .h3{max-width:30em}
+.figure .cap-l{margin-top:6px}
+.fig-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.chart{width:100%;height:340px;margin-top:22px}
+.chart.tall{height:460px}.chart.short{height:240px}
+.lg{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:var(--note)}
+.lg i{display:inline-block;width:18px;height:2px;vertical-align:middle;margin-right:8px}
+.lg i.bk{height:10px;width:14px}
+.tabs.sm{gap:18px}.tabs.sm a{font-size:13px;padding-bottom:4px;cursor:pointer}
+.tabs.zh a{font-family:var(--text);letter-spacing:.04em;font-size:13.5px}
+.src{margin-top:12px;font-size:12.5px;color:var(--note);line-height:1.7}
+.tip{background:var(--pw);padding:22px 26px;margin-top:32px}
+.tip .p{font-size:15px;margin-top:8px;text-align:left}
+.tb.num td,.tb.num th{text-align:right;padding-right:0;padding-left:20px;white-space:nowrap}
+.tb.num td:first-child,.tb.num th:first-child{text-align:left;padding-left:0}
+.tb td{font-variant-numeric:tabular-nums}
+.tb .s{font-size:12.5px}
+.tb-w{overflow-x:auto;margin-top:26px}
+.rows .row .s b{font-weight:500;color:var(--ink)}
+.play+.play{margin-top:44px}
+.play .p{margin-top:10px;font-size:15.5px;text-align:left}
+.play dl{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:8px 16px;margin-top:14px;font-size:14.5px;line-height:1.75}
+.play dt{color:var(--note)}
+.inp{font:inherit;font-size:16px;width:4.2em;padding:6px 0;border:0;border-bottom:1px solid var(--stone);background:none;color:var(--ink);text-align:right;outline:none;font-variant-numeric:tabular-nums}
+.inp:focus{border-bottom-color:var(--ink)}
+.seg{display:flex;gap:10px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:14px;padding:8px 20px;border:1px solid var(--stone);border-radius:24px;background:none;color:var(--ink);cursor:pointer;transition:all .5s var(--ease)}
+.seg button:hover{border-color:var(--ink)}
+.seg button.on{background:var(--p);border-color:var(--p)}
+.mk-row{display:grid;grid-template-columns:72px minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr) 64px;column-gap:24px;align-items:center;padding:26px 0}
+.mk-row .t{font-family:var(--display);font-weight:600;font-size:22px;transition:transform .6s var(--ease)}
+a.mk-row:hover .t{transform:translateX(8px)}
+.mk-row .ck{display:block;width:34px;height:11px}
+.mk-row .rd{font-size:14.5px;line-height:1.6}
+.mk-row .rd .s{display:block}
+.mk-row .m{font-family:var(--label);letter-spacing:.14em;font-size:13px;color:var(--grey);text-align:right}
+
+@container (max-width:1080px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{gap:16px}.nav a.n{font-size:14px}}
+@container (max-width:760px){
+  .verdict{grid-template-columns:1fr;row-gap:8px}
+  .chart{height:280px}.chart.tall{height:400px}
+  .tiles{gap:36px 20px}
+  .mk-row{grid-template-columns:44px minmax(0,1fr) auto;row-gap:10px}
+  .mk-row .pos{grid-column:2 / -1;grid-row:2}.mk-row .rd{grid-column:2 / -1;grid-row:3}.mk-row .m{grid-column:3;grid-row:1}
+  .play dl{grid-template-columns:1fr;gap:2px}.play dd{margin-bottom:10px}
+}
+.two>*{min-width:0}
+.tb.num td{vertical-align:top}

@@ -1,0 +1,12 @@
+{
+  "name": "manfuli-asset-coordinates",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "慢复利资产坐标：五类资产所处位置的公开看板（纯静态站点 + 一个数据更新脚本）",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "update": "node scripts/update-data.mjs",
+    "serve": "python3 -m http.server 4173 --directory site"
+  }
+}
