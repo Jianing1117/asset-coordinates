@@ -11,7 +11,8 @@ A 股、美股、债券、黄金、加密资产五类资产现在各自站在历
 - 规则引擎按评审改过一轮，并加了美股回撤阶梯，见「规则怎么动仓位」。
 - 已在 1360、1100、390 三种宽度检查过；站内引用的 Long Arc 链接全部可访问。
 - 代码已推到 GitHub 公开仓库 `Jianing1117/asset-coordinates`（`main` 分支），部署配置已备好（`vercel.json`，输出目录是 `site/`）。提交用 GitHub 隐私邮箱，已写在本仓库的 git 配置里。
-- 还没做：在 Vercel 导入仓库并绑定 longarcsociety.com 的子域名、每日定时更新、加入 Long Arc 的 Works 页。
+- 已上线：https://asset-coordinates.vercel.app （Vercel 团队 long arc，项目 asset-coordinates，从 `main` 自动部署）。Vercel 的 GitHub 集成已加上本仓库的访问权限。
+- 还没做：绑定 longarcsociety.com 的子域名（vercel.app 的地址在中国大陆通常打不开，面向国内读者必须绑自有域名）、每日定时更新、加入 Long Arc 的 Works 页。
 
 ## 怎么跑
 
