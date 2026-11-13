@@ -12,7 +12,8 @@ A 股、美股、债券、黄金、加密资产五类资产现在各自站在历
 - 已在 1360、1100、390 三种宽度检查过；站内引用的 Long Arc 链接全部可访问。
 - 代码已推到 GitHub 公开仓库 `Jianing1117/asset-coordinates`（`main` 分支），部署配置已备好（`vercel.json`，输出目录是 `site/`）。提交用 GitHub 隐私邮箱，已写在本仓库的 git 配置里。
 - 已上线：https://asset-coordinates.vercel.app （Vercel 团队 long arc，项目 asset-coordinates，从 `main` 自动部署）。Vercel 的 GitHub 集成已加上本仓库的访问权限。
-- 还没做：绑定 longarcsociety.com 的子域名（vercel.app 的地址在中国大陆通常打不开，面向国内读者必须绑自有域名）、每日定时更新、加入 Long Arc 的 Works 页。
+- 子域名 `coordinates.longarcsociety.com` 已加进 Vercel 项目，等解析生效。域名解析在 Cloudflare，需要加一条 CNAME：`coordinates` 指向 `96d1f8f45590581a.vercel-dns-017.com`，代理关闭。主站的 www 是经 EdgeOne 回源到 Vercel 的；要让国内访问顺畅，子域名之后也要照 www 的方式接入 EdgeOne，回源到 `asset-coordinates.vercel.app`。
+- 还没做：解析记录、EdgeOne 接入、每日定时更新、加入 Long Arc 的 Works 页（主站 `content/works/` 下加一篇，分类「资产配置」，排在家庭财务体检之后）。
 
 ## 怎么跑
 
