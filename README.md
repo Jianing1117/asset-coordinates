@@ -10,7 +10,8 @@ A 股、美股、债券、黄金、加密资产五类资产现在各自站在历
 - 数据脚本完成：一条命令抓取、计算、写出 JSON。不需要任何 token。
 - 规则引擎按评审改过一轮，并加了美股回撤阶梯，见「规则怎么动仓位」。
 - 已在 1360、1100、390 三种宽度检查过；站内引用的 Long Arc 链接全部可访问。
-- 部署配置已备好（`vercel.json`，输出目录是 `site/`）。还没做：推到 GitHub、在 Vercel 建项目并绑域名、每日定时更新、加入 Long Arc 的 Works 页。
+- 代码已推到 GitHub 公开仓库 `Jianing1117/asset-coordinates`（`main` 分支），部署配置已备好（`vercel.json`，输出目录是 `site/`）。提交用 GitHub 隐私邮箱，已写在本仓库的 git 配置里。
+- 还没做：在 Vercel 导入仓库并绑定 longarcsociety.com 的子域名、每日定时更新、加入 Long Arc 的 Works 页。
 
 ## 怎么跑
 
