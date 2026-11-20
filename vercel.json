@@ -10,6 +10,12 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "asset-coordinates.vercel.app" }],
+      "destination": "https://coordinates.longarcsociety.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "asset-coordinates.vercel.app" }],
       "destination": "https://coordinates.longarcsociety.com/:path*",
