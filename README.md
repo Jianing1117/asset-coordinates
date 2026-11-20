@@ -12,9 +12,9 @@ A 股、美股、债券、黄金、加密资产五类资产现在各自站在历
 - 已在 1360、1100、390 三种宽度检查过；站内引用的 Long Arc 链接全部可访问。
 - 代码已推到 GitHub 公开仓库 `Jianing1117/asset-coordinates`（`main` 分支），部署配置已备好（`vercel.json`，输出目录是 `site/`）。提交用 GitHub 隐私邮箱，已写在本仓库的 git 配置里。
 - 正式地址为 https://coordinates.longarcsociety.com 。Vercel 团队 long arc 下的 asset-coordinates 项目从 `main` 自动部署到该域名。旧的 `asset-coordinates.vercel.app` 地址会永久跳转到正式域名，并保留路径与查询参数。七页的 canonical 和分享 URL 均使用正式域名。
-- Cloudflare 的 `coordinates` CNAME 已指向 Vercel，代理为仅 DNS。EdgeOne 已添加该加速域名，边缘证书与 CNAME 切换待完成。EdgeOne 源站地址可用 `asset-coordinates.vercel.app`，回源 Host 必须使用 `coordinates.longarcsociety.com`，以直接取得正式站内容。
+- Cloudflare 的 `coordinates` CNAME 已指向 EdgeOne，代理为仅 DNS。EdgeOne 免费 HTTPS 证书已签发并部署，后续自动续期；HTTP 请求以 301 跳转到 HTTPS。源站地址为 `asset-coordinates.vercel.app`，回源 Host 使用 `coordinates.longarcsociety.com`，以直接取得正式站内容。
 - Long Arc 的 Works 页已发布，入口为 https://www.longarcsociety.com/works/asset-coordinates ，在线使用指向正式子域名。
-- 每日更新已启用，北京时间 07:00、19:00。运行副本在 `~/.local/share/asset-coordinates/`，保留 `cache/`，只提交 `site/data/`，休眠错过的时段跳过。
+- 每日更新已启用，北京时间 07:00、19:00。运行副本在 `~/.local/share/asset-coordinates/`，保留 `cache/`，只提交 `site/data/`，休眠错过的时段跳过。发布后直接通过正式域名核验 `summary.json` 的生成时间；2026-11-20 已手动跑完更新、推送、部署核验全流程。
 
 ## 怎么跑
 
