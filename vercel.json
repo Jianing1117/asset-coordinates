@@ -7,5 +7,13 @@
   "headers": [
     { "source": "/data/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] },
     { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }] }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "asset-coordinates.vercel.app" }],
+      "destination": "https://coordinates.longarcsociety.com/:path*",
+      "permanent": true
+    }
   ]
 }

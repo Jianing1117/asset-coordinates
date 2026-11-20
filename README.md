@@ -4,16 +4,17 @@ A 股、美股、债券、黄金、加密资产五类资产现在各自站在历
 
 这是公开版，自用版以后在它的基础上另做，不合并。
 
-## 现在做到哪（2026-11-13）
+## 现在做到哪（2026-11-20）
 
 - 站点完成：总览、五个市场页、「我的规则与体检」，共七页。纯静态，不需要构建。
 - 数据脚本完成：一条命令抓取、计算、写出 JSON。不需要任何 token。
 - 规则引擎按评审改过一轮，并加了美股回撤阶梯，见「规则怎么动仓位」。
 - 已在 1360、1100、390 三种宽度检查过；站内引用的 Long Arc 链接全部可访问。
 - 代码已推到 GitHub 公开仓库 `Jianing1117/asset-coordinates`（`main` 分支），部署配置已备好（`vercel.json`，输出目录是 `site/`）。提交用 GitHub 隐私邮箱，已写在本仓库的 git 配置里。
-- 已上线：https://asset-coordinates.vercel.app （Vercel 团队 long arc，项目 asset-coordinates，从 `main` 自动部署）。Vercel 的 GitHub 集成已加上本仓库的访问权限。
-- 子域名 `coordinates.longarcsociety.com` 已加进 Vercel 项目，等解析生效。域名解析在 Cloudflare，需要加一条 CNAME：`coordinates` 指向 `96d1f8f45590581a.vercel-dns-017.com`，代理关闭。主站的 www 是经 EdgeOne 回源到 Vercel 的；要让国内访问顺畅，子域名之后也要照 www 的方式接入 EdgeOne，回源到 `asset-coordinates.vercel.app`。
-- 还没做：解析记录、EdgeOne 接入、每日定时更新、加入 Long Arc 的 Works 页（主站 `content/works/` 下加一篇，分类「资产配置」，排在家庭财务体检之后）。
+- 正式地址为 https://coordinates.longarcsociety.com 。Vercel 团队 long arc 下的 asset-coordinates 项目从 `main` 自动部署到该域名。旧的 `asset-coordinates.vercel.app` 地址会永久跳转到正式域名，并保留路径与查询参数。七页的 canonical 和分享 URL 均使用正式域名。
+- Cloudflare 的 `coordinates` CNAME 已指向 Vercel，代理为仅 DNS。EdgeOne 已添加该加速域名，边缘证书与 CNAME 切换待完成。EdgeOne 源站地址可用 `asset-coordinates.vercel.app`，回源 Host 必须使用 `coordinates.longarcsociety.com`，以直接取得正式站内容。
+- Long Arc 的 Works 页已发布，入口为 https://www.longarcsociety.com/works/asset-coordinates ，在线使用指向正式子域名。
+- 每日更新已启用，北京时间 07:00、19:00。运行副本在 `~/.local/share/asset-coordinates/`，保留 `cache/`，只提交 `site/data/`，休眠错过的时段跳过。
 
 ## 怎么跑
 
@@ -74,10 +75,10 @@ cache/                    各数据源上一次成功的原始数据（不进 gi
 
 ## 给 Codex：每日更新要做的事
 
-1. 每个交易日收盘后运行 `npm run update`。A 股数据傍晚出，美股数据次日早上出，建议北京时间每天 08:00 和 19:00 各跑一次。
+1. 北京时间每天 07:00 和 19:00 各运行一次 `npm run update`。使用 `~/.local/share/asset-coordinates/` 的独立运行副本。
 2. 看退出码：0 是全部成功；2 是有数据源失败、已沿用缓存（页面会标「数据停在某日」）。连续几天都是 2 再处理。
 3. 看 `site/data/summary.json` 的 `sinceLastRun`：非空表示有市场的规则状态变了（低位、中间、高位之间），这是唯一需要提醒用户的事件。位置分的五档标签变化不提醒。近十年各市场平均每年变化 0.5 到 2.8 次。
-4. 把更新后的 `site/data/` 发布出去（取决于最终托管方式，上线时再定）。
+4. 只提交并推送更新后的 `site/data/`，由 Vercel 自动发布到正式子域名。
 5. 定时任务属于「新建自动化」，建之前要先问用户，并在 System Log 里记一条。
 
 后台任务读不到 `~/Documents`。定时任务要么在能读到的位置跑一份副本，要么先确认运行环境的权限。本地预览服务遇到过同样的问题。
